@@ -51,15 +51,28 @@ cd 选课助手
 
 # 如果你不会用git...直接下载压缩包解压也行啦！
 第二步：安装依赖（魔法咒语）
+注意：由于编码问题，直接运行 pip install -r requirements.txt 可能会报错。推荐以下几种方法：
+
+方法一：使用安装脚本（最简单）
 bash
-# 方法一：一键安装所有依赖（推荐）
-pip install -r requirements.txt
-
-# 方法二：如果上面不行，试试国内镜像（速度起飞）
-pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
-
-# 方法三：如果还不行...那就一个一个安装吧（悲壮）
-pip install pyautogui keyboard numpy pillow opencv-python easyocr
+# 直接运行安装脚本
+python install_dependencies.py
+方法二：手动逐个安装（最稳妥）
+bash
+# 一个一个安装，避免编码问题
+pip install pyautogui
+pip install keyboard
+pip install numpy
+pip install Pillow
+pip install opencv-python
+pip install easyocr
+方法三：使用镜像源加速（国内用户推荐）
+bash
+# 使用清华镜像源，速度飞起
+pip install pyautogui keyboard numpy Pillow opencv-python easyocr -i https://pypi.tuna.tsinghua.edu.cn/simple
+方法四：Windows用户使用批处理文件
+text
+直接双击运行 setup.bat 文件
 第三步：配置系统（按需调整）
 打开 config.py 文件，你可以：
 
@@ -119,7 +132,23 @@ python main.py
 
 提前测试：选课前先找个不重要的时间测试一下
 
-常见问题：
+❓ 常见问题
+安装问题：
+bash
+# Q: pip安装报错怎么办？
+# A: 试试这些解决方案：
+
+# 1. 升级pip
+python -m pip install --upgrade pip
+
+# 2. 使用Python模块安装
+python -m pip install pyautogui
+
+# 3. 创建新的虚拟环境
+python -m venv venv
+venv\Scripts\activate  # Windows
+# source venv/bin/activate  # Mac/Linux
+运行问题：
 Q：为什么检测不到课程？
 A：可能是关键词设置不对，或者监控区域没选对
 
