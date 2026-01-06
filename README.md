@@ -1,0 +1,2 @@
+# SCUAssistedCourseSelectionSystem
+help
